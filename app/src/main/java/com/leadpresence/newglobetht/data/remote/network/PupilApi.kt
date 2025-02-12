@@ -1,0 +1,32 @@
+package com.leadpresence.newglobetht.data.remote.network
+
+
+
+import com.leadpresence.newglobetht.domain.model.Pupil
+import com.leadpresence.newglobetht.domain.model.PupilList
+import com.leadpresence.newglobetht.domain.model.PupilResponse
+import retrofit2.http.*
+import retrofit2.http.DELETE
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.PUT
+import retrofit2.http.Path
+import retrofit2.http.Query
+import io.reactivex.rxjava3.core.Single
+
+interface PupilApi {
+    @GET("pupils")
+    fun getPupils(@Query("page") page: Int = 1): PupilResponse
+    /// get pupil by id
+    @GET("pupil/{pupilId}")
+    fun getPupilById(   @Path("pupilId") pupilId: Int,): Single<Pupil>
+    /// create pupil
+    @POST("pupils")
+    fun createPupil(@Body pupil: Pupil): Single<Pupil>
+    /// edit pupil
+    @PUT("pupils/{pupilId}")
+    fun updatePupil( @Path("pupilId") pupilId: Int,  @Body pupil: Pupil): Single<Pupil>
+    /// delete pupil
+    @DELETE("pupils/{pupilId}")
+    fun deletePupil(@Path("pupilId") pupilId: Int): Single<Void>
+}

@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -67,4 +68,22 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation(libs.coil.compose)
+
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.converter)
+    implementation(libs.paging.runtime)
+    implementation(libs.paging.compose)
+    implementation(libs.navigation.compose)
+
+    implementation(libs.rx.android.java)
+    implementation(libs.rx.android)
+    implementation(libs.rx.android.kotlin)
+    implementation(libs.kotlinx.serialization.json)
+
+
 }

@@ -7,3 +7,7 @@ data class Pupil(
     val latitude: Double,
     val longitude: Double
 )
+
+    class PupilList(
+        val items: MutableList<Pupil>
+    )
