@@ -8,8 +8,10 @@ val repositoryModule = module {
     single<PupilRepository> {
         PupilRepositoryImpl(
             pupilDao = get(),
-//            providePupilApi = get(),
-         mapper =  mapperModule,
+            apiService = get(),
+            pupilEntityToPupilMapper= get(),
+            mapper = get(),
+            remoteKeyDao = get()
 
         )
     }

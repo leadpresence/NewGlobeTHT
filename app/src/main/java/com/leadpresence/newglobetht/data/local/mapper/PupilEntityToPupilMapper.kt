@@ -9,10 +9,12 @@ class PupilEntityToPupilMapper(
     override fun map(from: PupilEntity): Pupil {
         return Pupil(
             id = from.id,
+            pupilId = from.pupilId,
             name=from.name,
-            imageUrl = from.imageUrl,
+            image = from.image,
             latitude = from.latitude,
             longitude = from.longitude,
+            country = from.country
         )
     }
 }

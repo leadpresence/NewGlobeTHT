@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.leadpresence.newglobetht.presentation.ui.common.components.ScreenHeader
 import com.leadpresence.newglobetht.presentation.ui.common.state.UiState
 
 
@@ -32,5 +33,14 @@ fun EditScreen(
     onSaveClick: () -> Unit,
     onBackClick: () -> Unit
 ) {
+
+    Column {
+        ScreenHeader(
+            title = "Edit Pupil",
+            subtitle = "Update pupil information using the form below",
+            onBackClick = onBackClick
+        )
+        // Rest of the screen content
+    }
 
 }

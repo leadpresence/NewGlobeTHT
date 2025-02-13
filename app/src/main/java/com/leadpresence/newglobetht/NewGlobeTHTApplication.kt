@@ -4,6 +4,7 @@ import android.app.Application
 import com.leadpresence.newglobetht.di.appModule
 import com.leadpresence.newglobetht.di.mapperModule
 import com.leadpresence.newglobetht.di.networkModule
+import com.leadpresence.newglobetht.di.pupilEntityToPupilMapperModule
 import com.leadpresence.newglobetht.di.repositoryModule
 import com.leadpresence.newglobetht.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
@@ -14,7 +15,7 @@ class PupilManagerApp : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@PupilManagerApp)
-            modules(listOf(appModule, networkModule,mapperModule,repositoryModule,viewModelModule))
+            modules(listOf(appModule, networkModule,mapperModule,repositoryModule,viewModelModule,pupilEntityToPupilMapperModule))
         }
     }
 }

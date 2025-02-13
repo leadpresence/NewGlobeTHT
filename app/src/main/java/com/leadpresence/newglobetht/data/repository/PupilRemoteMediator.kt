@@ -56,7 +56,7 @@ class PupilRemoteMediator(
             }
 
             LoadType.APPEND -> {
-                val remoteKey = state.pages?.lastOrNull {
+                val remoteKey = state.pages.lastOrNull {
                     it.data.isNotEmpty()
                 }?.data?.lastOrNull()?.let {
                     remoteKeyDao.getRemoteKey(it.id)

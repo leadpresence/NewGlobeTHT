@@ -20,9 +20,10 @@ retrofit = "2.9.0"
 coil = "2.5.0"
 paging = "3.2.1"
 navigation = "2.7.5"
+room_version = "2.6.1"
 
-rxjava_version = '3.1.8'
-rxandroid_version = '3.0.2'
+#rxjava_version = '3.1.10'
+#rxandroid_version = '3.0.2'
 kotlinx = '3.0.1'
 kotlinx-serialization-json = "1.7.3"
 converter="1.0.0"
@@ -57,12 +58,12 @@ paging-runtime = { group = "androidx.paging", name = "paging-runtime", version.r
 paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "paging" }
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 
-rx-android ={module="io.reactivex.rxjava2:rxandroid", version.ref="rxandroid_version"}
-rx-android-java ={module="io.reactivex.rxjava2:rxjava", version.ref="rxjava_version"}
+#rx-android ={module="io.reactivex.rxjava2:rxandroid", version.ref="rxandroid_version"}
+#rx-android-java ={module="io.reactivex.rxjava2:rxjava", version.ref="rxjava_version"}
 rx-android-kotlin ={module="io.reactivex.rxjava3:rxkotlin", version.ref="kotlinx"}
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
 retrofit-converter ={module="com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version.ref = "converter" }
-
+room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
 
 
 

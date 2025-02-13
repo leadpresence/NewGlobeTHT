@@ -6,7 +6,6 @@ import androidx.room.*
 import androidx.room.Insert
 import androidx.room.Query
 import com.leadpresence.newglobetht.data.local.entity.PupilEntity
-import com.leadpresence.newglobetht.domain.model.Pupil
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -30,6 +29,6 @@ interface PupilDao {
     @Delete
     suspend fun deletePupil(pupil: PupilEntity)
 
-    @Query("SELECT COUNT(*) FROM pupils WHERE `pupilId`=:id")
+    @Query("SELECT COUNT(*) FROM pupils WHERE `id`=:id")
     suspend fun getCountCorrespondingToQuery(id: Int): Int
 }

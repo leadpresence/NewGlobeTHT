@@ -10,18 +10,22 @@ class PupilMapper {
     fun toDomain(entity: PupilEntity): Pupil {
         return Pupil(
             id = entity.id,
+            pupilId = entity.pupilId,
             name = entity.name,
-            imageUrl = entity.imageUrl,
+            image = entity.image,
             latitude = entity.latitude,
-            longitude = entity.longitude
+            longitude = entity.longitude,
+            country=entity.country
         )
     }
 
     fun toEntity(domain: Pupil): PupilEntity {
         return PupilEntity(
             id = domain.id,
+            pupilId = domain.pupilId,
             name = domain.name,
-            imageUrl = domain.imageUrl,
+            image = domain.image,
+            country = domain.country,
             latitude = domain.latitude,
             longitude = domain.longitude
         )

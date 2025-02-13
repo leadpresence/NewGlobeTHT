@@ -80,9 +80,10 @@ dependencies {
     implementation(libs.paging.compose)
     implementation(libs.navigation.compose)
 
-    implementation(libs.rx.android.java)
-    implementation(libs.rx.android)
+//    implementation(libs.rx.android.java)
+//    implementation(libs.rx.android)
     implementation(libs.rx.android.kotlin)
+    implementation(libs.room.paging)
     implementation(libs.kotlinx.serialization.json)
 
 

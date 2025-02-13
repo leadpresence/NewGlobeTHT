@@ -19,12 +19,15 @@ import androidx.compose.ui.unit.dp
 import com.leadpresence.newglobetht.presentation.ui.common.state.UiState
 import com.leadpresence.newglobetht.presentation.ui.pupils.components.PupilItem
 import androidx.compose.runtime.getValue
+import com.leadpresence.newglobetht.presentation.ui.common.components.ScreenHeader
 
 
 @Composable
 fun PupilsScreen(
     viewModel: PupilsViewModel,
-    onPupilClick: (Long) -> Unit
+    onPupilClick: (Long) -> Unit,
+    onBackClick: () -> Unit
+
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
@@ -40,6 +43,15 @@ fun PupilsScreen(
 
         is UiState.Success -> {
             LazyColumn {
+
+                item {
+                    ScreenHeader(
+                        title = "Pupils",
+                        subtitle = "View all registered pupils",
+                        onBackClick = onBackClick,
+                        modifier = Modifier.fillMaxWidth()
+                    )
+                }
                 items(state.data) { pupil ->
                     PupilItem(
                         pupil = pupil,

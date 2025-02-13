@@ -21,7 +21,7 @@ class CreatePupilUseCase(
     fun validatePupil(pupil: Pupil): ValidationResult {
         return when {
             pupil.name.isBlank() -> ValidationResult.Error("Name cannot be empty")
-            pupil.imageUrl.isBlank() -> ValidationResult.Error("Image URL cannot be empty")
+            pupil.image.isBlank() -> ValidationResult.Error("Image URL cannot be empty")
             !isValidLatitude(pupil.latitude) -> ValidationResult.Error("Invalid latitude")
             !isValidLongitude(pupil.longitude) -> ValidationResult.Error("Invalid longitude")
             else -> ValidationResult.Success

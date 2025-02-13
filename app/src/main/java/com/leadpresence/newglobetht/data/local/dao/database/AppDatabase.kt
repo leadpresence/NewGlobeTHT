@@ -12,16 +12,15 @@ import com.leadpresence.newglobetht.data.local.entity.RemoteKey
 
 @Database(entities = [PupilEntity::class, RemoteKey::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
-
-    companion object {
-        fun getInstance(context: Context) = Room.databaseBuilder(
-            context,
-            AppDatabase::class.java,
-            "app_db"
-        )
-            .build()
-    }
-
+//Already provided
+//    companion object {
+//        fun getInstance(context: Context) = Room.databaseBuilder(
+//            context,
+//            AppDatabase::class.java,
+//            "new_globe_db"
+//        )
+//            .build()
+//    }
     abstract fun getImageDao(): PupilDao
 
     abstract fun getRemoteKeyDao(): RemoteKeyDao

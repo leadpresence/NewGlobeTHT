@@ -48,6 +48,7 @@ fun AppNavigation(
 
             PupilsScreen(
                   viewModel= viewModel ,
+                onBackClick = {},
                 onPupilClick = { pupilId ->
                     navController.navigate(AppScreens.PupilDetail.createRoute(pupilId))
                 }
@@ -59,6 +60,7 @@ fun AppNavigation(
 
             AddPupilScreen (
                 viewModel= viewModel ,
+                onBackClick = {},
                 onSave = {
                     //Todo move user to a new page on save
                 }

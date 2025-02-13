@@ -7,11 +7,12 @@ class PupilDTOToPupilEntityMapper(
 ) : MapperPaging<PupilDTO, PupilEntity> {
     override fun map(from: PupilDTO): PupilEntity {
         return PupilEntity(
-            id = from.pupilId,
+            pupilId = from.pupilId,
             name=from.name,
-            imageUrl = from.image,
+            image = from.image,
             latitude = from.latitude,
             longitude = from.longitude,
+            country = from.country,
         )
     }
 }

@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
+import com.leadpresence.newglobetht.presentation.ui.common.components.ScreenHeader
 import com.leadpresence.newglobetht.presentation.ui.common.state.UiState
 
 
@@ -53,8 +54,16 @@ fun PupilDetailScreen(
                     .fillMaxSize()
                     .padding(16.dp)
             ) {
+                Column {
+                    ScreenHeader(
+                        title = "Pupil Details",
+                        subtitle = "View detailed information about this pupil",
+                        onBackClick = onBackClick
+                    )
+                    // Rest of the screen content
+                }
                 AsyncImage(
-                    model = state.data.imageUrl,
+                    model = state.data.image,
                     contentDescription = "Student Image",
                     modifier = Modifier
                         .fillMaxWidth()
