@@ -17,24 +17,7 @@ Error Handling: Comprehensive error states and retry mechanisms
 
 🏗 Architecture
 This project follows Clean Architecture principles with MVVM pattern:
-src
-├── data
-│   ├── local
-│   │   ├── dao
-│   │   ├── database
-│   │   └── entities
-│   ├── remote
-│   │   ├── api
-│   │   └── dto
-│   └── repository
-├── domain
-│   ├── model
-│   ├── repository
-│   └── usecase
-└── presentation
-    ├── screens
-    ├── viewmodel
-    └── ui
+ 
 Key Components
 Data Layer
 
