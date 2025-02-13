@@ -17,7 +17,7 @@ Error Handling: Comprehensive error states and retry mechanisms
 
 🏗 Architecture
 This project follows Clean Architecture principles with MVVM pattern:
-Copysrc
+src
 ├── data
 │   ├── local
 │   │   ├── dao
