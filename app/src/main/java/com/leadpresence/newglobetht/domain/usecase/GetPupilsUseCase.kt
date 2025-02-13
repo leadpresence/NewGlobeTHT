@@ -9,9 +9,9 @@ import kotlinx.coroutines.flow.map
 class GetPupilsUseCase(
     private val repository: PupilRepository
 ) {
-    suspend operator fun invoke(page: Int, pageSize: Int): Flow<Result<List<Pupil>>> {
-        return repository.getPupils(page, pageSize)
-            .map { Result.success(it) }
-            .catch { emit(Result.failure(it)) }
-    }
+//    suspend operator fun invoke(page: Int, pageSize: Int): Flow<Result<List<Pupil>>> {
+//        return repository.getPupils(page, pageSize)
+//            .map { Result.success(it) }
+//            .catch { emit(Result.failure(it)) }
+//    }
 }

@@ -26,7 +26,11 @@ import com.leadpresence.newglobetht.presentation.ui.common.state.UiState
 @Composable
 fun PupilDetailScreen(
     viewModel: PupilDetailViewModel,
-    pupilId: Long
+
+    pupilId: Long,
+    onEditClick: () -> Unit,
+    onBackClick: () -> Unit,
+
 ) {
     val uiState by viewModel.uiState.collectAsState()
 

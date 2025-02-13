@@ -28,7 +28,6 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.leadpresence.newglobetht.domain.model.Pupil
-import com.leadpresence.newglobetht.presentation.navigation.AppScreens
 import java.util.Locale
 
 
@@ -44,16 +43,8 @@ fun PupilItem(
             .height(TabHeight)
             .fillMaxWidth()
     ) {
-        Row(Modifier.selectableGroup()) {
-            allScreens.forEach { screen ->
-                RallyTab(
-                    text = screen.route,
-//                    icon = screen.icon,
-                    onSelected = { onTabSelected() },
-                    selected = currentScreen == screen
-                )
-            }
-        }
+
+
     }
 }
 

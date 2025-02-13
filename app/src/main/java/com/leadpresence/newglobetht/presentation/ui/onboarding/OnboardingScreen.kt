@@ -18,7 +18,10 @@ import androidx.compose.ui.unit.dp
 
 
 @Composable
-fun OnboardingScreen(onGetStarted: () -> Unit) {
+fun OnboardingScreen(
+    viewModel: OnboardingViewModel,
+
+    onGetStartedClick: () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -43,7 +46,7 @@ fun OnboardingScreen(onGetStarted: () -> Unit) {
         Spacer(modifier = Modifier.height(32.dp))
 
         Button(
-            onClick = onGetStarted,
+            onClick = onGetStartedClick,
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Get Started")

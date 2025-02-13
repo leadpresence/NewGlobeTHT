@@ -12,8 +12,8 @@ import kotlinx.coroutines.launch
 
 
 class PupilDetailViewModel(
-    private val repository: PupilRepository,
-    private val getPupilUseCase: GetPupilUseCase
+    private val pupilId: Long,
+    private val pupilRepository: PupilRepository
 ) : ViewModel() {
     private val _uiState = MutableStateFlow<UiState<Pupil>>(UiState.Loading)
     val uiState = _uiState.asStateFlow()
@@ -21,7 +21,7 @@ class PupilDetailViewModel(
     fun loadPupil(id: Long) {
         viewModelScope.launch {
             try {
-                repository.getPupilById(id)
+                pupilRepository.getPupilById(id)
                     .collect { pupil ->
                         _uiState.value = UiState.Success(pupil)
                     }
