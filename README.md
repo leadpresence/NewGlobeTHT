@@ -1,6 +1,6 @@
-# Student Traker App in JeTpAck Compose 📚
+# Student Traker App in Android Jetpack Compose 📚
 
-Welcome to our Student Management App! This modern Android application helps educators and administrators manage student information efficiently and effectively.
+Welcome to our Student Traker App! This modern Android application helps educators and administrators manage student information efficiently and effectively.
 
 ## What Does This App Do? 🎯
 
