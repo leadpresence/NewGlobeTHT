@@ -8,6 +8,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.leadpresence.newglobetht.presentation.ui.addPupil.AddPupilScreen
+import com.leadpresence.newglobetht.presentation.ui.addPupil.AddPupilViewModel
 import com.leadpresence.newglobetht.presentation.ui.onboarding.OnboardingScreen
 import com.leadpresence.newglobetht.presentation.ui.onboarding.OnboardingViewModel
 import com.leadpresence.newglobetht.presentation.ui.pupildetail.EditScreen
@@ -48,6 +50,17 @@ fun AppNavigation(
                   viewModel= viewModel ,
                 onPupilClick = { pupilId ->
                     navController.navigate(AppScreens.PupilDetail.createRoute(pupilId))
+                }
+            )
+        }
+
+        composable(AppScreens.AddPupilScreen.route) {
+            val viewModel: AddPupilViewModel = koinViewModel()
+
+            AddPupilScreen (
+                viewModel= viewModel ,
+                onSave = {
+                    //Todo move user to a new page on save
                 }
             )
         }

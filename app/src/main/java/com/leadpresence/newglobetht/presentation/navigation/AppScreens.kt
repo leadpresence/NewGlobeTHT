@@ -10,7 +10,7 @@ sealed class AppScreens(val route: String) {
     object PupilDetail : AppScreens("pupil/{pupilId}") {
         fun createRoute(pupilId: Long) = "pupil/$pupilId"
     }
-    object AddPupil : AppScreens("add_pupil")
+    object AddPupilScreen : AppScreens("add_pupil")
     object EditPupil : AppScreens("edit_pupil/{pupilId}") {
         fun createRoute(pupilId: Long) = "edit_pupil/$pupilId"
     }
