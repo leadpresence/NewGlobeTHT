@@ -14,25 +14,16 @@ import kotlinx.coroutines.launch
 class PupilDetailViewModel(
     private val pupilId: Long,
     private val pupilRepository: PupilRepository
-) : ViewModel() {
-    private val _uiState = MutableStateFlow<UiState<Pupil>>(UiState.Loading)
-    val uiState = _uiState.asStateFlow()
-//
-    fun loadPupil(id: Long) {
-        viewModelScope.launch {
-            try {
-                pupilRepository.getPupilById(id)
-                    .collect { pupil ->
-                        _uiState.value = UiState.Success(pupil)
-                    }
-            } catch (e: Exception) {
-                _uiState.value = UiState.Error(e.message ?: "Unknown error")
-            }
-        }
-    }
 
-    private val _pupilState = MutableStateFlow<UiState<Pupil>>(UiState.Loading)
-    val pupilState = _pupilState.asStateFlow()
+) : ViewModel() {
+
+
+//    private val _uiState = MutableStateFlow<UiState<Pupil>>(UiState.Loading)
+//    val uiState = _uiState.asStateFlow()
+//
+//
+//    private val _pupilState = MutableStateFlow<UiState<Pupil>>(UiState.Loading)
+//    val pupilState = _pupilState.asStateFlow()
 
 //    fun getPupil(id: Long) {
 //        viewModelScope.launch {

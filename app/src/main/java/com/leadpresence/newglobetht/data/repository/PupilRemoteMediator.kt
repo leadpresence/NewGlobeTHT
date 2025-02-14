@@ -70,7 +70,7 @@ class PupilRemoteMediator(
         }
 
         return try {
-            val response = apiService.getPupils( page = page)
+            val response = apiService.getPupils()
             val remoteImages = response.items.distinctBy { it.pupilId }
             val endOfPaginationReached = remoteImages.size < state.config.pageSize
             val prevPage = if (page > 1) page - 1 else null

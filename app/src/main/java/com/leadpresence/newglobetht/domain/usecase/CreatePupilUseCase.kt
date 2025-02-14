@@ -8,7 +8,7 @@ class CreatePupilUseCase(
 ) {
     suspend operator fun invoke(pupil: Pupil): Result<Unit> {
         return try {
-            repository.insertPupil(pupil)
+            repository.createPupil(pupil)
             Result.success(Unit)
         } catch (e: Exception) {
             Result.failure(e)

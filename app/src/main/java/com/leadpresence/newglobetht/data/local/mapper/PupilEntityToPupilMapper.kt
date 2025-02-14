@@ -4,7 +4,6 @@ import com.leadpresence.newglobetht.data.local.entity.PupilEntity
 import com.leadpresence.newglobetht.domain.model.Pupil
 
 class PupilEntityToPupilMapper(
-    private val query: String
 ) : MapperPaging<PupilEntity, Pupil> {
     override fun map(from: PupilEntity): Pupil {
         return Pupil(

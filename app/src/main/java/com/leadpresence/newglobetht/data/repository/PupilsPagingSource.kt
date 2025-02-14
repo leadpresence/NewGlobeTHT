@@ -9,7 +9,7 @@ import com.leadpresence.newglobetht.domain.model.Pupil
 
 class PupilsPagingSource(
     private val apiService: PupilApi,
-    private val mapper: PupilDTOToPupilMapper
+    private val pupilDTOToPupilMapperModule: PupilDTOToPupilMapper
 ) : PagingSource<Int, Pupil>() {
     override fun getRefreshKey(state: PagingState<Int, Pupil>): Int? {
         return state.anchorPosition?.let {
@@ -23,9 +23,9 @@ class PupilsPagingSource(
         val pageSize = params.loadSize
         return try {
 
-            val pupils = apiService.getPupils(page = page)
+            val pupils = apiService.getPupils()
             LoadResult.Page(
-                data = mapper.mapAll(pupils.items),
+                data = pupilDTOToPupilMapperModule.mapAll(pupils.items),
                 prevKey = if (page == 1) null else page.minus(1),
                 nextKey = if (pupils.items.size < pageSize) null else page.plus(1)
             )

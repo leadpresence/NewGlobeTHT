@@ -13,10 +13,11 @@ import retrofit2.http.PUT
 import retrofit2.http.Path
 import retrofit2.http.Query
 import io.reactivex.rxjava3.core.Single
+import retrofit2.Response
 
 interface PupilApi {
     @GET("pupils")
-    fun getPupils(@Query("page") page: Int = 1): PupilResponse
+    fun getPupils(): PupilResponse
     /// get pupil by id
     @GET("pupil/{pupilId}")
     fun getPupilById(   @Path("pupilId") pupilId: Int,): Single<Pupil>
@@ -28,5 +29,5 @@ interface PupilApi {
     fun updatePupil( @Path("pupilId") pupilId: Int,  @Body pupil: Pupil): Single<Pupil>
     /// delete pupil
     @DELETE("pupils/{pupilId}")
-    fun deletePupil(@Path("pupilId") pupilId: Int): Single<Void>
+    fun deletePupil(@Path("pupilId") pupilId: Int): Response<Unit>
 }
