@@ -1,6 +1,7 @@
 package com.leadpresence.newglobetht.presentation.ui.pupils
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.leadpresence.newglobetht.domain.model.Pupil
@@ -10,6 +11,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -31,39 +35,50 @@ class PupilsViewModel(
     private val _pupils = MutableStateFlow<PagingData<Pupil>>(PagingData.empty())
     val pupils = _pupils.asStateFlow()
     init {
-        loadPupils()
+        getPupils()
     }
 
-    private fun loadPupils() {
+    private fun getPupils() {
         viewModelScope.launch {
             try {
-                _uiState.update { UiState.Loading }
-
-                _pupils.collect { pagingData ->
-                    _uiState.update { UiState.Success(pagingData) }
-                }
+                val pager = pupilRepository.getPupils()
+                pager.flow
+                    .map { UiState.Success(it) as UiState<PagingData<Pupil>> }
+                    .onStart { emit(UiState.Loading) }
+                    .catch { emit(UiState.Error(it.message ?: "Unknown error")) }
+                    .collect { state ->
+                        _uiState.value = state
+                    }
             } catch (e: Exception) {
-                _uiState.update { UiState.Error(e.message ?: "Unknown error occurred") }
+                _pupilState.value = UiState.Error(e.message ?: "Unknown error")
             }
         }
     }
 
-//    fun getPupil(id: Long) {
+//    init {
+//        loadPupils()
+//    }
+//
+//    private fun loadPupils() {
 //        viewModelScope.launch {
-//            _pupilState.value = UiState.Loading
-//            r(id).collect { result ->
-//                _pupilState.value = when {
-//                    result.isSuccess -> UiState.Success(result.getOrNull()!!)
-//                    result.isFailure -> UiState.Error(
-//                        result.exceptionOrNull()?.message ?: "Unknown error"
-//                    )
-//                }
+//            try {
+//                _uiState.update { UiState.Loading }
+//
+//                // Now getPupils is called inside a coroutine
+//                val pager = pupilRepository.getPupils()
+//                pager.flow
+//                    .collect { pagingData ->
+//                        _uiState.update { UiState.Success(pagingData) }
+//                    }
+//            } catch (e: Exception) {
+//                _uiState.update { UiState.Error(e.message ?: "Unknown error occurred") }
 //            }
 //        }
 //    }
 
     fun retry() {
-        loadPupils()
+//        loadPupils()
+        getPupils()
     }
     fun selectPupil(id: Long) {
         _selectedPupilId.value = id

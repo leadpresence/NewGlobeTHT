@@ -25,6 +25,7 @@ import com.leadpresence.newglobetht.presentation.ui.common.state.UiState
 import com.leadpresence.newglobetht.presentation.ui.pupils.components.PupilItem
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.text.style.TextAlign
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.leadpresence.newglobetht.domain.model.Pupil
@@ -39,8 +40,10 @@ fun PupilsScreen(
 
 ) {
 
-    val uiState by viewModel.uiState.collectAsState()
+//    val uiState by viewModel.uiState.collectAsState()
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     val pupils = viewModel.pupils.collectAsLazyPagingItems()
+
 
     Box(modifier = Modifier.fillMaxSize()) {
         when (uiState) {
@@ -57,7 +60,7 @@ fun PupilsScreen(
                     item {
                         ScreenHeader(
                             title = "Pupils",
-                            subtitle = "View all registered pupils",
+                            subtitle = "Registered pupils",
                             onBackClick = onBackClick,
                             modifier = Modifier.fillMaxWidth()
                         )
