@@ -1,13 +1,13 @@
 [versions]
 agp = "8.6.1"
-kotlin = "1.9.0"
+kotlin = "2.1.10"
 coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.7"
 activityCompose = "1.10.0"
-composeBom = "2025.01.01"
+composeBom = "2025.02.00"
 
 compose = "1.5.4"
 compose-compiler = "1.5.4"
@@ -16,18 +16,20 @@ androidx-core = "1.12.0"
 androidx-lifecycle = "2.7.0"
 room = "2.6.1"
 koin = "3.5.0"
-retrofit = "2.9.0"
-coil = "2.5.0"
-paging = "3.2.1"
-navigation = "2.7.5"
+retrofit = "2.11.0"
+coil = "2.7.0"
+paging = "3.3.6"
+navigation = "2.8.7"
 room_version = "2.6.1"
 
 #rxjava_version = '3.1.10'
 #rxandroid_version = '3.0.2'
 kotlinx = '3.0.1'
 kotlinx-serialization-json = "1.7.3"
+kotlinx-serialize = "1.9.20"
 converter="1.0.0"
-
+gson-convert ="2.11.0"
+gson ="2.10.1"
 
 
 [libraries]
@@ -66,10 +68,18 @@ retrofit-converter ={module="com.jakewharton.retrofit:retrofit2-kotlinx-serializ
 room-paging = { group = "androidx.room", name = "room-paging", version.ref = "room" }
 
 
+gson-converter={ module="com.squareup.retrofit2:converter-gson", version.ref="gson-convert"}
+gson = { module="com.google.code.gson:gson", version.ref="gson"}
+
+
 
 
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlinx-serialize = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinx-serialize" }
+
+
 

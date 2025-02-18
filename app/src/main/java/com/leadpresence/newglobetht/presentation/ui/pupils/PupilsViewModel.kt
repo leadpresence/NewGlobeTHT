@@ -34,26 +34,27 @@ class PupilsViewModel(
 
     private val _pupils = MutableStateFlow<PagingData<Pupil>>(PagingData.empty())
     val pupils = _pupils.asStateFlow()
-    init {
-        getPupils()
-    }
 
-    private fun getPupils() {
-        viewModelScope.launch {
-            try {
-                val pager = pupilRepository.getPupils()
-                pager.flow
-                    .map { UiState.Success(it) as UiState<PagingData<Pupil>> }
-                    .onStart { emit(UiState.Loading) }
-                    .catch { emit(UiState.Error(it.message ?: "Unknown error")) }
-                    .collect { state ->
-                        _uiState.value = state
-                    }
-            } catch (e: Exception) {
-                _pupilState.value = UiState.Error(e.message ?: "Unknown error")
-            }
-        }
-    }
+//    init {
+////        getPupils()
+//    }
+
+//    private fun getPupils() {
+//        viewModelScope.launch {
+//            try {
+//                val pager = pupilRepository.getPupils()
+//                pager.flow
+//                    .map { UiState.Success(it) as UiState<PagingData<Pupil>> }
+//                    .onStart { emit(UiState.Loading) }
+//                    .catch { emit(UiState.Error(it.message ?: "Unknown error")) }
+//                    .collect { state ->
+//                        _uiState.value = state
+//                    }
+//            } catch (e: Exception) {
+//                _pupilState.value = UiState.Error(e.message ?: "Unknown error")
+//            }
+//        }
+//    }
 
 //    init {
 //        loadPupils()
@@ -78,7 +79,7 @@ class PupilsViewModel(
 
     fun retry() {
 //        loadPupils()
-        getPupils()
+//        getPupils()
     }
     fun selectPupil(id: Long) {
         _selectedPupilId.value = id

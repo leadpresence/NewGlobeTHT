@@ -31,8 +31,6 @@ import com.leadpresence.newglobetht.domain.model.Pupil
 import java.util.Locale
 
 
-
-
 @Composable
 fun PupilItem(
     onTabSelected: ( ) -> Unit,

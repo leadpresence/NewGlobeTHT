@@ -1,5 +1,6 @@
 package com.leadpresence.newglobetht.domain.model
 
+import com.leadpresence.newglobetht.data.local.dao.PupilEntity
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -18,4 +19,16 @@ data class PupilDTO(
     val image: String,
     val latitude: Double,
     val longitude: Double
-)
+) {
+    fun toEntity() {
+        PupilEntity(
+            id = 0,
+            pupilId = pupilId,
+            name = name,
+            country = country,
+            image = image,
+            latitude = latitude,
+            longitude = longitude
+        )
+    }
+}

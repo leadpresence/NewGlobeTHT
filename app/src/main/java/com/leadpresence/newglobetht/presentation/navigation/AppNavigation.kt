@@ -8,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.leadpresence.newglobetht.presentation.ui.PupilViewModel
 import com.leadpresence.newglobetht.presentation.ui.addPupil.AddPupilScreen
 import com.leadpresence.newglobetht.presentation.ui.addPupil.AddPupilViewModel
 import com.leadpresence.newglobetht.presentation.ui.onboarding.OnboardingScreen
@@ -17,7 +18,7 @@ import com.leadpresence.newglobetht.presentation.ui.pupildetail.EditViewModel
 import com.leadpresence.newglobetht.presentation.ui.pupildetail.PupilDetailScreen
 import com.leadpresence.newglobetht.presentation.ui.pupildetail.PupilDetailViewModel
 import com.leadpresence.newglobetht.presentation.ui.pupils.PupilsScreen
-import com.leadpresence.newglobetht.presentation.ui.pupils.PupilsViewModel
+//import com.leadpresence.newglobetht.presentation.ui.pupils.PupilViewModel
 import org.koin.androidx.compose.koinViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 
@@ -44,14 +45,14 @@ fun AppNavigation(
         }
 
         composable(AppScreens.PupilsScreen.route) {
-            val viewModel: PupilsViewModel = koinViewModel()
+            val viewModel: PupilViewModel = koinViewModel()
 
             PupilsScreen(
                   viewModel= viewModel ,
-                onBackClick = {},
-                onPupilClick = { pupilId ->
-                    navController.navigate(AppScreens.PupilDetail.createRoute(pupilId))
-                }
+//                onBackClick = {},
+//                onPupilClick = { pupilId ->
+//                    navController.navigate(AppScreens.PupilDetail.createRoute(pupilId))
+//                }
             )
         }
 

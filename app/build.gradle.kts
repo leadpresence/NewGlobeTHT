@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("com.google.devtools.ksp")
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.kotlinx.serialize)
 }
 
 android {
@@ -85,6 +87,8 @@ dependencies {
     implementation(libs.rx.android.kotlin)
     implementation(libs.room.paging)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.gson)
+    implementation(libs.gson.converter)
 
 
 }
